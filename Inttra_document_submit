@@ -1,0 +1,29 @@
+from selenium import webdriver
+driver = webdriver.Chrome('C:\Python\Scripts123\chromedriver.exe')
+from selenium.webdriver.common.keys import Keys
+from time import sleep
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.common.exceptions import NoSuchElementException
+from pyautogui import press, typewrite, hotkey
+
+driver.get('https://login.inttra.com')
+sleep(2)
+u = driver.find_element_by_id("email")
+u.send_keys("trtinternational")
+p = driver.find_element_by_id("password")
+p.send_keys("196maracaibo")
+login = driver.find_element_by_xpath("/html/body/app-root/div/div/div/div/app-login/div/div[1]/form/button")
+login.click()
+sleep(5)
+driver.find_element_by_xpath("//*[@id='shipLabel']").click()
+sleep(1)
+driver.find_element_by_xpath("//*[@id='dashboard-ship']/ul/li[13]/a").click()
+sleep(2)
+shiper = input("введи шипера  ")
+panel = driver.find_element_by_xpath("//*[@id='pane1']")
+panel.click()
+
